@@ -25,7 +25,7 @@ public class NastavnikController {
     private NastavnikService nastavnikService;
 
     @RequestMapping(path = "", method = RequestMethod.GET)
-    public ResponseEntity<Iterable<NastavnikDTO>> getAll() {
+    public ResponseEntity<Iterable<NastavnikDTO>> getAllNastavnk() {
         ArrayList<NastavnikDTO> nastavniciDTO = new ArrayList<NastavnikDTO>();
 
         for (Nastavnik nastavnik : nastavnikService.findAll()) {
@@ -36,7 +36,7 @@ public class NastavnikController {
     }
 
     @RequestMapping(path = "/{nastavnikId}",method = RequestMethod.GET)
-    public ResponseEntity<NastavnikDTO> getOne(@PathVariable("nastavnikId") Long nastavnikId){
+    public ResponseEntity<NastavnikDTO> getOneNastavnik(@PathVariable("nastavnikId") Long nastavnikId){
         Optional<Nastavnik> nastavnik = Optional.ofNullable(nastavnikService.findOne(nastavnikId).orElse(null));
 
         if(nastavnik.isPresent()){
